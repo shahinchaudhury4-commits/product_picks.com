@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazon Affiliate Product Picks</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: #f4f6f8;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background: #232f3e;
+            color: #fff;
+            padding: 2rem 0 1rem 0;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+        header p {
+            margin: 0.5rem 0 0 0;
+            font-size: 1.2rem;
+            color: #ff9900;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 2rem auto;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+            padding: 2rem;
+        }
+        .intro {
+            text-align: center;
+            color: #444;
+            margin-bottom: 2rem;
+        }
+        .products {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: center;
+        }
+        .product-card {
+            background: #f9fafb;
+            border-radius: 8px;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+            width: 300px;
+            padding: 1.5rem 1rem;
+            text-align: center;
+            transition: box-shadow 0.2s;
+        }
+        .product-card:hover {
+            box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+        }
+        .product-card img {
+            max-width: 100%;
+            border-radius: 6px;
+            margin-bottom: 1rem;
+            height: 180px;
+            object-fit: contain;
+            background: #fff;
+        }
+        .product-title {
+            font-size: 1.15rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            color: #232f3e;
+        }
+        .product-desc {
+            font-size: 0.98rem;
+            color: #666;
+            margin-bottom: 1rem;
+        }
+        .affiliate-link {
+            display: inline-block;
+            background: #ff9900;
+            color: #fff;
+            padding: 0.7rem 1.5rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.2s;
+        }
+        .affiliate-link:hover {
+            background: #e68a00;
+        }
+        footer {
+            text-align: center;
+            color: #888;
+            margin: 2rem 0 1rem 0;
+            font-size: 0.95rem;
+        }
+        @media (max-width: 900px) {
+            .products {
+                flex-direction: column;
+                align-items: center;
+            }
+            .product-card {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Amazon Product Picks</h1>
+        <p>Best Deals &amp; Recommendations</p>
+    </header>
+    <div class="container">
+        <div class="intro">
+            <p>Welcome! Explore our top Amazon product recommendations. Click "Shop Now" to purchase through our affiliate links and support us!</p>
+        </div>
+        <div class="products">
+            <!-- Product 1 -->
+            <div class="product-card">
+                <img src="https://images-na.ssl-images-amazon.com/images/I/81eA%2B5Q2v-L._AC_SL1500_.jpg" alt="Wireless Headphones">
+                <div class="product-title">Wireless Bluetooth Headphones</div>
+                <div class="product-desc">Experience immersive sound and comfort with these top-rated wireless headphones.</div>
+                <a class="affiliate-link" href="YOUR_AMAZON_AFFILIATE_LINK_1" target="_blank">Shop Now</a>
+            </div>
+            <!-- Product 2 -->
+            <div class="product-card">
+                <img src="https://images-na.ssl-images-amazon.com/images/I/71kxa1-0mfL._AC_SL1500_.jpg" alt="Smart Watch">
+                <div class="product-title">Smart Fitness Watch</div>
+                <div class="product-desc">Track your health and stay connected with this stylish smart watch.</div>
+                <a class="affiliate-link" href="YOUR_AMAZON_AFFILIATE_LINK_2" target="_blank">Shop Now</a>
+            </div>
+            <!-- Product 3 -->
+            <div class="product-card">
+                <img src="https://images-na.ssl-images-amazon.com/images/I/81QpkIctqPL._AC_SL1500_.jpg" alt="Portable Speaker">
+                <div class="product-title">Portable Bluetooth Speaker</div>
+                <div class="product-desc">Take your music anywhere with this powerful and compact speaker.</div>
+                <a class="affiliate-link" href="YOUR_AMAZON_AFFILIATE_LINK_3" target="_blank">Shop Now</a>
+            </div>
+        </div>
+    </div>
+    <footer>
+        © 2025 Your Affiliate Website. As an Amazon Associate, we earn from qualifying purchases.
+    </footer>
+</body>
+</html>
