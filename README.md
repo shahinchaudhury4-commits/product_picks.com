@@ -1,1 +1,1 @@
-# product_picks.com
+# productpicks.com
