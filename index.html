@@ -115,9 +115,24 @@
         <div class="intro">
             <p>Welcome! Explore our top Amazon product recommendations. Click "Shop Now" to purchase through our affiliate links and support us! Scroll all the way down to get google ads and updates!</p>
         </div>
-        <div class="products">
-            <!-- Product 1 -->
-            <div class="product-card">
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="Search for products...">
+            <button onclick="searchProducts()">Search</button>
+        </div>
+        <div class="sections">
+            <button class="active" onclick="filterSection('all', this)">All</button>
+            <button onclick="filterSection('Men Clothing', this)">Men's Clothing</button>
+            <button onclick="filterSection('Women Clothing', this)">Women Clothing</button>
+            <button onclick="filterSection('Electronics', this)">Electronics</button>
+            <button onclick="filterSection('Baby Products', this)">Baby Products</button>
+            <button onclick="filterSection('Beauty', this)">Beauty</button>
+            <button onclick="filterSection('Home Decor', this)">Home Decor</button>
+            <button onclick="filterSection('All types of sales', this)">All types of sales</button>
+
+        </div>
+        <div class="products" id="productsList">
+            <!-- electronics Product 1 -->
+            <div class="product-card" data-section="Electronics" data-title="Wireless Headphones">
                 <img src="https://m.media-amazon.com/images/I/21wdfYYVw+L._SY300_SX300_QL70_FMwebp_.jpg" width="200px" alt="Wireless Headphones">
                 <div class="product-title">OnePlus Bullets Z2 Bluetooth Wireless in Ear Earphones with Mic, Bombastic Bass - 12.4 Mm Drivers, 10 Mins Charge - 20 Hrs Music, 30 Hrs Battery Life (Jazz Green)</div>
                 <div class="product-desc">Experience immersive sound and comfort with these top-rated wireless headphones.</div>
@@ -246,6 +261,7 @@
     </footer>
 </body>
 </html>
+
 
 
 
