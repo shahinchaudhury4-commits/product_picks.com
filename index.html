@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Amazon Affiliate Product Picks</title>
     <style>
-        body {
+    body {
             font-family: 'Segoe UI', Arial, sans-serif;
             background: #809fbe;
             margin: 0;
-            padding: 0;
+            padding: 0px;
         }
         header {
             background: #232f3e;
@@ -27,7 +27,8 @@
             color: #ff9900;
         }
         .container {
-            max-width: 11100px;
+	    width:100%;
+            max-width: 1200px;
             margin: 2rem auto;
             background: #fff;
             border-radius: 12px;
@@ -45,7 +46,7 @@
             margin-bottom: 2rem;
         }
         .search-bar input {
-            width: 300px;
+            width: 150px;
             padding: 0.7rem;
             border-radius: 4px 0 0 4px;
             border: 1px solid #ccc;
@@ -90,7 +91,7 @@
             background: #f9fafb;
             border-radius: 8px;
             box-shadow: 0 1px 4px rgba(0,0,0,0.04);
-            width: 200px;
+            width: 500px;
             padding: 1.5rem 1rem;
             text-align: center;
             transition: box-shadow 0.2s;
@@ -138,7 +139,7 @@
         }
         @media (max-width: 900px) {
             .products {
-                flex-direction: row;
+                flex-direction: column;
                 align-items: center;
             }
             .product-card {
@@ -375,3 +376,4 @@
 </html>
    
   
+
