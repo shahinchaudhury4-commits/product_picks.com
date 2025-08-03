@@ -7,7 +7,7 @@
     <style>
         body {
             font-family: 'Segoe UI', Arial, sans-serif;
-            background: #f4f6f8;
+            background: #809fbe;
             margin: 0;
             padding: 0;
         }
@@ -27,7 +27,7 @@
             color: #ff9900;
         }
         .container {
-            max-width: 1100px;
+            max-width: 11100px;
             margin: 2rem auto;
             background: #fff;
             border-radius: 12px;
@@ -39,7 +39,7 @@
             color: #444;
             margin-bottom: 2rem;
         }
-          .search-bar {
+        .search-bar {
             display: flex;
             justify-content: center;
             margin-bottom: 2rem;
@@ -63,34 +63,34 @@
         .sections {
             display: flex;
             justify-content: center;
-            gap: 1rem;
-            margin-bottom: 2rem;
+            gap: 2rem;
+            margin-bottom: 1rem;
         }
         .sections button {
-            background: #232f3e;
+            background: #43aebe;
             color: #fff;
             border: none;
             padding: 0.7rem 1.5rem;
-            border-radius: 4px;
+            border-radius: 2px;
             cursor: pointer;
             font-size: 1rem;
             transition: background 0.2s;
         }
         .sections button.active, .sections button:hover {
             background: #ff9900;
-            color: #232f3e;
+            color: #253242;
         }
         .products {
             display: flex;
             flex-wrap: wrap;
-            gap: 2rem;
+            gap: 3rem;
             justify-content: center;
         }
         .product-card {
             background: #f9fafb;
             border-radius: 8px;
             box-shadow: 0 1px 4px rgba(0,0,0,0.04);
-            width: 300px;
+            width: 200px;
             padding: 1.5rem 1rem;
             text-align: center;
             transition: box-shadow 0.2s;
@@ -138,7 +138,7 @@
         }
         @media (max-width: 900px) {
             .products {
-                flex-direction: column;
+                flex-direction: row;
                 align-items: center;
             }
             .product-card {
@@ -154,22 +154,24 @@
     </header>
     <div class="container">
         <div class="intro">
-            <p>Welcome! Explore our top Amazon product recommendations. Click "Shop Now" to purchase through our affiliate links and support us! Scroll all the way down to get google ads and updates!</p>
+            <p>Welcome! Explore our top Amazon product recommendations. Use the search bar or browse by category. Click "Shop Now" to purchase through our affiliate links and support us!</p>
         </div>
         <div class="search-bar">
             <input type="text" id="searchInput" placeholder="Search for products...">
             <button onclick="searchProducts()">Search</button>
         </div>
         <div class="sections">
-            <button class="active" onclick="filterSection('all', this)">All</button>
+            <button class="active" onclick="filterSection('All', this)">All</button>
             <button onclick="filterSection('Men Clothing', this)">Men's Clothing</button>
             <button onclick="filterSection('Women Clothing', this)">Women Clothing</button>
             <button onclick="filterSection('Electronics', this)">Electronics</button>
-            <button onclick="filterSection('Baby Products', this)">Baby Products</button>
-            <button onclick="filterSection('Beauty', this)">Beauty</button>
+            <button onclick="filterSection('Beauty & Baby Products', this)"> Beauty and Baby Products</button>
+            
             <button onclick="filterSection('Home Decor', this)">Home Decor</button>
             <button onclick="filterSection('All types of sales', this)">All types of sales</button>
-
+            <button onclick="filterSection('Grocery & Stationary', this)">Grocery & Stationary</button>
+            
+            
         </div>
         <div class="products" id="productsList">
             <!-- electronics Product 1 -->
@@ -194,35 +196,35 @@
                 <a class="affiliate-link" href="https://amzn.to/3GUdmwp" target="_blank">Shop Now</a>
             </div>
             <!-- Product 4 -->
-            <div class="product-card" data-section="Beauty" data-title="Beetroot Lip Balm">
+            <div class="product-card" data-section="Beauty & Baby Products" data-title="Beetroot Lip Balm">
                 <img src="https://m.media-amazon.com/images/I/71+ygvFmoCL._AC_UL480_FMwebp_QL65_.jpg" alt="Beetroot Lip Balm">
                 <div class="product-title">Nourish Mantra Beetroot Blast Lip Balm with SPF/Formulated with Beetroot Extracts, Olive Oil, Shea Butter, Vitamin E, and Avocado Oil/Best for both women and men/ 12gms</div>
                 <div class="product-desc">Have naturally healthy and hydrated lips.</div>
                 <a class="affiliate-link" href="https://amzn.to/4l988uO" target="_blank">Shop Now</a>
             </div>
             <!-- Product 5 -->
-            <div class="product-card">
+            <div class="product-card" data-section="Grocery & Stationary" data-title="Aladdin Dates">
                 <img src="https://m.media-amazon.com/images/I/415FJRI5jDL._SY300_SX300_QL70_FMwebp_.jpg" width="200px" alt="Aladdin Dates">
                 <div class="product-title">Aladdin Dates Black Kimia Dates/Khajoor 500 Grams | IML Continer Packed |Mazafati Dates | Soft Khajur | Natural & Healthy Snack | IML Continer Packed</div>
                 <div class="product-desc">India’s First Clean Label Dates Brand</div>
                 <a class="affiliate-link" href="https://amzn.to/3IX6tLi" target="_blank">Shop Now</a>
            </div>
              <!-- Product 6 -->
-            <div class="product-card">
+            <div class="product-card" data-section="Women Clothing" data-title="Fit Trouser for women">
                 <img src="https://m.media-amazon.com/images/I/7179zb+0VzL._SY879_.jpg" width="250px" alt="Fit Trouser for women">
                 <div class="product-title">DIGITAL SHOPEE Women Regular Fit Elastic Waist Full Length Cotton Formal Trouser for Casual Wear, Office Wear</div>
                 <div class="product-desc">Comfortable and casual wear pant at a very reasonable price. At anytime and anywhere</div>
                 <a class="affiliate-link" href="https://amzn.to/46wNj8S" target="_blank">Shop Now</a>
             </div>
             <!-- Product 7 -->
-            <div class="product-card">
+            <div class="product-card" data-section="Grocery & Stationary" data-title="UPSC question Bank">
                 <img src="https://m.media-amazon.com/images/I/81nBbBqoAGL._SY522_.jpg" width="200px" alt="UPSC question Bank">
                 <div class="product-title">26 Years UPSC IAS/ IPS Prelims Topic-wise Solved Papers 1 & 2 (1995 - 2020) 11th Edition</div>
                 <div class="product-desc">The thoroughly Revised and Updated 11th edition of Disha's BESTSELLER "26 Years UPSC IAS/ IPS Prelims Topic-wise Solved Papers 1 & 2 (1995-2020)" consists of past years solved papers of the General Studies Paper 1 & 2 distributed into 8 Units and 52 Topics.</div>
                 <a class="affiliate-link" href="https://amzn.to/3GT7pzT" target="_blank">Shop Now</a>
             </div>
              <!-- Product 8 -->
-            <div class="product-card">
+            <div class="product-card" data-section="Beauty & Baby Products" data-title="Kimira Bath and Body Care">
                 <img src="https://m.media-amazon.com/images/I/51MWkSY171L._SX522_.jpg" width="200px" alt="Kimira Bath and Body Care">
                 <div class="product-title">Kimirica Love Story Luxury Bath and Body Care Gift Set Box | Bath Salt, Body Wash, Body Lotion, Bathing Bar and Hand cream | Pack of 5 | For Men and Women | Pampering Kit for Birthday ,Anniversary & All Special Occasions | Premium Gift Packaging 100% Vegan</div>
                 <div class="product-desc">Luxurious Product from the best sellers.</div>
@@ -295,19 +297,81 @@
             </script>
             -->
             <span>Ad will appear here</span>
-        </div>
+        </div>      
     </div>
     <footer>
-       ©  Affiliate website and Google advirtisements. All rights reserved.
+        © 2025 Your Affiliate Website. As an Amazon Associate, we earn from qualifying purchases.
     </footer>
+    <script>
+        function searchProducts() {
+            const input = document.getElementById('searchInput').value.toLowerCase();
+            const cards = document.querySelectorAll('.product-card');
+            cards.forEach(card => {
+                const title = card.getAttribute('data-title').toLowerCase();
+                if (title.includes(input)) {
+                    card.style.display = '';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        function filterSection(section, btn) {
+            // Set active button
+            document.querySelectorAll('.sections button').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            // Filter cards
+            const cards = document.querySelectorAll('.product-card');
+            cards.forEach(card => {
+                if (section === 'all' || card.getAttribute('data-section') === section) {
+                    card.style.display = '';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+            // Clear search input
+            document.getElementById('searchInput').value = '';
+        }
+    </script>
+<!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
+   
+  
