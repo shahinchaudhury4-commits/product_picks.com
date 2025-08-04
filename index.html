@@ -1,41 +1,40 @@
-<!DOCTYPE html>
+!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Amazon Affiliate Product Picks</title>
+    <title>Amazon Fashion Picks</title>
     <style>
-    body {
+        * { box-sizing: border-box; }
+        body {
             font-family: 'Segoe UI', Arial, sans-serif;
-            background: #809fbe;
+            background: linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%);
             margin: 0;
-            padding: 2rem;
+            padding: 0;
         }
         header {
             background: #232f3e;
             color: #fff;
             padding: 2rem 0 1rem 0;
             text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.07);
         }
         header h1 {
             margin: 0;
-            font-size: 2.5rem;
+            font-size: 2.2rem;
+            letter-spacing: 2px;
         }
         header p {
             margin: 0.5rem 0 0 0;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             color: #ff9900;
         }
-	    {
-  box-sizing: border-box;
-}
         .container {
-	    width:100%;
-            max-width: 700px;
+            max-width: 1100px;
             margin: 2rem auto;
             background: #fff;
-            border-radius: 12px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+            border-radius: 16px;
+            box-shadow: 0 2px 16px rgba(0,0,0,0.09);
             padding: 2rem;
         }
         .intro {
@@ -49,11 +48,12 @@
             margin-bottom: 2rem;
         }
         .search-bar input {
-            width: 60px;
+            width: 250px;
             padding: 0.7rem;
             border-radius: 4px 0 0 4px;
             border: 1px solid #ccc;
-            font-size: 0.9rem;
+            font-size: 1rem;
+            outline: none;
         }
         .search-bar button {
             padding: 0.7rem 1.2rem;
@@ -63,61 +63,68 @@
             border-radius: 0 4px 4px 0;
             font-size: 1rem;
             cursor: pointer;
+            transition: background 0.2s;
+        }
+        .search-bar button:hover {
+            background: #e68a00;
         }
         .sections {
             display: flex;
             justify-content: center;
-            gap: 2rem;
-            margin-bottom: 1rem;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
         }
         .sections button {
-            background: #43aebe;
+            background: #232f3e;
             color: #fff;
             border: none;
             padding: 0.7rem 1.5rem;
-            border-radius: 2px;
+            border-radius: 4px;
             cursor: pointer;
             font-size: 1rem;
             transition: background 0.2s;
         }
         .sections button.active, .sections button:hover {
             background: #ff9900;
-            color: #253242;
+            color: #232f3e;
         }
         .products {
             display: flex;
             flex-wrap: wrap;
-            gap: 3rem;
+            gap: 2rem;
             justify-content: center;
         }
         .product-card {
             background: #f9fafb;
-            border-radius: 8px;
-            box-shadow: 0 1px 4px rgba(0,0,0,0.04);
-            width: 200px;
+            border-radius: 12px;
+            box-shadow: 0 1px 8px rgba(0,0,0,0.06);
+            width: 270px;
             padding: 1.5rem 1rem;
             text-align: center;
-            transition: box-shadow 0.2s;
+            transition: box-shadow 0.2s, transform 0.2s;
+            position: relative;
         }
         .product-card:hover {
-            box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+            box-shadow: 0 4px 24px rgba(0,0,0,0.13);
+            transform: translateY(-4px) scale(1.03);
         }
         .product-card img {
             max-width: 100%;
-            border-radius: 6px;
+            border-radius: 8px;
             margin-bottom: 1rem;
-            height: 180px;
-            object-fit: contain;
+            height: 200px;
+            object-fit: cover;
             background: #fff;
         }
         .product-title {
-            font-size: 1.15rem;
+            font-size: 1.1rem;
             font-weight: bold;
             margin-bottom: 0.5rem;
             color: #232f3e;
         }
         .product-desc {
-            font-size: 0.98rem;
+            font-size: 0.97rem;
             color: #666;
             margin-bottom: 1rem;
         }
@@ -140,14 +147,35 @@
             margin: 2rem 0 1rem 0;
             font-size: 0.95rem;
         }
-        @media (max-width: 600px) {
+        @media (max-width: 900px) {
             .products {
-		    padding: 1rem
-                flex-direction: row;
+                flex-direction: column;
                 align-items: center;
             }
             .product-card {
-                width: 90%;
+                width: 95%;
+            }
+            .container {
+                padding: 1rem;
+            }
+        }
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 1.3rem;
+            }
+            .container {
+                padding: 0.5rem;
+            }
+            .search-bar input {
+                width: 120px;
+                font-size: 0.95rem;
+            }
+            .sections button {
+                padding: 0.5rem 1rem;
+                font-size: 0.95rem;
+            }
+            .product-card img {
+                height: 140px;
             }
         }
     </style>
@@ -155,7 +183,7 @@
 <body>
     <header>
         <h1>Amazon Product Picks</h1>
-        <p>Best Deals &amp; Recommendations</p>
+        <p>Best Deals & Recommendations</p>
     </header>
     <div class="container">
         <div class="intro">
@@ -166,143 +194,72 @@
             <button onclick="searchProducts()">Search</button>
         </div>
         <div class="sections">
-            <button class="active" onclick="filterSection('All', this)">All</button>
-            <button onclick="filterSection('Men Clothing', this)">Men's Clothing</button>
-            <button onclick="filterSection('Women Clothing', this)">Women Clothing</button>
+            <button class="active" onclick="filterSection('all', this)">All</button>
+            <button onclick="filterSection('men', this)">Men's Clothing</button>
+            <button onclick="filterSection('women', this)">Women's Clothing</button>
             <button onclick="filterSection('Electronics', this)">Electronics</button>
-            <button onclick="filterSection('Beauty & Baby Products', this)"> Beauty and Baby Products</button>
-            
-            <button onclick="filterSection('Home Decor', this)">Home Decor</button>
-            <button onclick="filterSection('All types of sales', this)">All types of sales</button>
+            <button onclick="filterSection('Beauty & Baby Products', this)">Beauty & Baby Products</button>
             <button onclick="filterSection('Grocery & Stationary', this)">Grocery & Stationary</button>
-            
-            
+            <button onclick="filterSection('All types of sales', this)">All types of Sales</button>
         </div>
         <div class="products" id="productsList">
-            <!-- electronics Product 1 -->
-            <div class="product-card" data-section="Electronics" data-title="Wireless Headphones">
-                <img src="https://m.media-amazon.com/images/I/21wdfYYVw+L._SY300_SX300_QL70_FMwebp_.jpg" width="200px" alt="Wireless Headphones">
-                <div class="product-title">OnePlus Bullets Z2 Bluetooth Wireless in Ear Earphones with Mic, Bombastic Bass - 12.4 Mm Drivers, 10 Mins Charge - 20 Hrs Music, 30 Hrs Battery Life (Jazz Green)</div>
-                <div class="product-desc">Experience immersive sound and comfort with these top-rated wireless headphones.</div>
-                <a class="affiliate-link" href="https://amzn.to/3UFi6ch" target="_blank">Shop Now</a>
-            </div>
-            <!-- electronics Product 2 -->
-            <div class="product-card" data-section="Electronics" data-title="Smart Watch">
-                <img src="https://m.media-amazon.com/images/I/61UvVTN0IEL._AC_UL480_FMwebp_QL65_.jpg" width="200px" alt="Smart Watch">
-                <div class="product-title">Amazfit Bip 6 Smart Watch 46mm, 14 Day Battery, 1.97" AMOLED Display, GPS & Free Maps, AI, Bluetooth Call & Text, Health, Fitness & Sleep Tracker, 140+ Workout Modes, 5 ATM Water-Resistance, Black</div>
-                <div class="product-desc">Track your health and stay connected with this stylish smart watch.</div>
-                <a class="affiliate-link" href="https://amzn.to/3UE0uNV" target="_blank">Shop Now</a>
-            </div>
-            <!-- Product 3 -->
-            <div class="product-card" data-section="Electronics" data-title="Portable Speaker">
-                <img src="https://m.media-amazon.com/images/I/41akA9Ib0kL._SY300_SX300_QL70_FMwebp_.jpg" width="200px" alt="Portable Speaker">
-                <div class="product-title">boAt Stone 352 Pro/Stone 358 Pro w/ 14W Signature Sound, Up to 12 Hours Playback, RGB LEDs, TWS Feature, Built-in Mic, BTv5.3, AUX Port, IPX5 & Type-C Interface Bluetooth Speaker (Raging Black)</div>
-                <div class="product-desc">Take your music anywhere with this powerful and compact speaker.</div>
-                <a class="affiliate-link" href="https://amzn.to/3GUdmwp" target="_blank">Shop Now</a>
-            </div>
-            <!-- Product 4 -->
-            <div class="product-card" data-section="Beauty & Baby Products" data-title="Beetroot Lip Balm">
-                <img src="https://m.media-amazon.com/images/I/71+ygvFmoCL._AC_UL480_FMwebp_QL65_.jpg" alt="Beetroot Lip Balm">
-                <div class="product-title">Nourish Mantra Beetroot Blast Lip Balm with SPF/Formulated with Beetroot Extracts, Olive Oil, Shea Butter, Vitamin E, and Avocado Oil/Best for both women and men/ 12gms</div>
-                <div class="product-desc">Have naturally healthy and hydrated lips.</div>
-                <a class="affiliate-link" href="https://amzn.to/4l988uO" target="_blank">Shop Now</a>
-            </div>
-            <!-- Product 5 -->
-            <div class="product-card" data-section="Grocery & Stationary" data-title="Aladdin Dates">
-                <img src="https://m.media-amazon.com/images/I/415FJRI5jDL._SY300_SX300_QL70_FMwebp_.jpg" width="200px" alt="Aladdin Dates">
-                <div class="product-title">Aladdin Dates Black Kimia Dates/Khajoor 500 Grams | IML Continer Packed |Mazafati Dates | Soft Khajur | Natural & Healthy Snack | IML Continer Packed</div>
-                <div class="product-desc">India’s First Clean Label Dates Brand</div>
-                <a class="affiliate-link" href="https://amzn.to/3IX6tLi" target="_blank">Shop Now</a>
-           </div>
-             <!-- Product 6 -->
-            <div class="product-card" data-section="Women Clothing" data-title="Fit Trouser for women">
-                <img src="https://m.media-amazon.com/images/I/7179zb+0VzL._SY879_.jpg" width="250px" alt="Fit Trouser for women">
-                <div class="product-title">DIGITAL SHOPEE Women Regular Fit Elastic Waist Full Length Cotton Formal Trouser for Casual Wear, Office Wear</div>
-                <div class="product-desc">Comfortable and casual wear pant at a very reasonable price. At anytime and anywhere</div>
-                <a class="affiliate-link" href="https://amzn.to/46wNj8S" target="_blank">Shop Now</a>
-            </div>
-            <!-- Product 7 -->
-            <div class="product-card" data-section="Grocery & Stationary" data-title="UPSC question Bank">
-                <img src="https://m.media-amazon.com/images/I/81nBbBqoAGL._SY522_.jpg" width="200px" alt="UPSC question Bank">
-                <div class="product-title">26 Years UPSC IAS/ IPS Prelims Topic-wise Solved Papers 1 & 2 (1995 - 2020) 11th Edition</div>
-                <div class="product-desc">The thoroughly Revised and Updated 11th edition of Disha's BESTSELLER "26 Years UPSC IAS/ IPS Prelims Topic-wise Solved Papers 1 & 2 (1995-2020)" consists of past years solved papers of the General Studies Paper 1 & 2 distributed into 8 Units and 52 Topics.</div>
-                <a class="affiliate-link" href="https://amzn.to/3GT7pzT" target="_blank">Shop Now</a>
-            </div>
-             <!-- Product 8 -->
-            <div class="product-card" data-section="Beauty & Baby Products" data-title="Kimira Bath and Body Care">
-                <img src="https://m.media-amazon.com/images/I/51MWkSY171L._SX522_.jpg" width="200px" alt="Kimira Bath and Body Care">
-                <div class="product-title">Kimirica Love Story Luxury Bath and Body Care Gift Set Box | Bath Salt, Body Wash, Body Lotion, Bathing Bar and Hand cream | Pack of 5 | For Men and Women | Pampering Kit for Birthday ,Anniversary & All Special Occasions | Premium Gift Packaging 100% Vegan</div>
-                <div class="product-desc">Luxurious Product from the best sellers.</div>
-                <a class="affiliate-link" href="https://amzn.to/41pSEv7" target="_blank">Shop Now</a>
-            </div>
-    </div>
-        <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Earn with Every Visit</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        body { 
-            font-family: Arial, sans-serif; 
-            background: #f4f6f8; 
-            margin: 0; 
-            padding: 0; 
-            text-align: center;
-        }
-        header {
-            background: #232f3e;
-            color: #fff;
-            padding: 2rem 0 1rem 0;
-        }
-        .container {
-            max-width: 700px;
-            margin: 2rem auto;
-            background: #fff;
-            border-radius: 12px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.07);
-            padding: 2rem;
-        }
-        .ad-section {
-            margin: 2rem 0;
-            min-height: 100px;
-            background: #e0e0e0;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        footer {
-            text-align: center;
-            color: #888;
-            margin: 2rem 0 1rem 0;
-            font-size: 0.95rem;
-        }
-    </style>
-</head>
-<body>
-    <header>
-        <h1>Welcome to the Page of Google ads.</h1>
-        <p>Support us by visiting and exploring our content!</p>
-    </header>
-    <div class="container">
-        <h2>Enjoy Our Content</h2>
-        <p>Love finding cool stuff? Explore our site and you might discover more than you came for. Your every visit helps us grow and leads us further to provide you the essential updates. Thank you for your support!</p>
-        <div class="ad-section">
-            <!-- Paste your ad network code below (e.g., Google AdSense) -->
-            <!-- Example: 
-            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-            <ins class="adsbygoogle"
-                 style="display:block"
-                 data-ad-client="ca-pub-XXXXXXXXXXXX"
-                 data-ad-slot="YYYYYYYYYY"
-                 data-ad-format="auto"></ins>
-            <script>
-                 (adsbygoogle = window.adsbygoogle || []).push({});
-            </script>
-            -->
-            <span>Ad will appear here</span>
-        </div>      
+         <!--Product 1-->
+         <div class="product-card" data-section="Electronics" data-title="Wireless Headphones">
+            <img src="https://m.media-amazon.com/images/I/21wdfYYVw+L._SY300_SX300_QL70_FMwebp_.jpg" width="200px" alt="Wireless Headphones">
+            <div class="product-title">OnePlus Bullets Z2 Bluetooth Wireless in Ear Earphones with Mic, Bombastic Bass - 12.4 Mm Drivers, 10 Mins Charge - 20 Hrs Music, 30 Hrs Battery Life (Jazz Green)</div>
+            <div class="product-desc">Experience immersive sound and comfort with these top-rated wireless headphones.</div>
+            <a class="affiliate-link" href="https://amzn.to/3UFi6ch" target="_blank">Shop Now</a>
+         </div>
+         <!-- electronics Product 2 -->
+         <div class="product-card" data-section="Electronics" data-title="Smart Watch">
+            <img src="https://m.media-amazon.com/images/I/61UvVTN0IEL._AC_UL480_FMwebp_QL65_.jpg" width="200px" alt="Smart Watch">
+            <div class="product-title">Amazfit Bip 6 Smart Watch 46mm, 14 Day Battery, 1.97" AMOLED Display, GPS & Free Maps, AI, Bluetooth Call & Text, Health, Fitness & Sleep Tracker, 140+ Workout Modes, 5 ATM Water-Resistance, Black</div>
+            <div class="product-desc">Track your health and stay connected with this stylish smart watch.</div>
+            <a class="affiliate-link" href="https://amzn.to/3UE0uNV" target="_blank">Shop Now</a>
+        </div>
+        <!-- Product 3 -->
+        <div class="product-card" data-section="Electronics" data-title="Portable Speaker">
+            <img src="https://m.media-amazon.com/images/I/41akA9Ib0kL._SY300_SX300_QL70_FMwebp_.jpg" width="200px" alt="Portable Speaker">
+            <div class="product-title">boAt Stone 352 Pro/Stone 358 Pro w/ 14W Signature Sound, Up to 12 Hours Playback, RGB LEDs, TWS Feature, Built-in Mic, BTv5.3, AUX Port, IPX5 & Type-C Interface Bluetooth Speaker (Raging Black)</div>
+            <div class="product-desc">Take your music anywhere with this powerful and compact speaker.</div>
+            <a class="affiliate-link" href="https://amzn.to/3GUdmwp" target="_blank">Shop Now</a>
+        </div>
+        <!-- Product 4 -->
+        <div class="product-card" data-section="Beauty & Baby Products" data-title="Beetroot Lip Balm">
+            <img src="https://m.media-amazon.com/images/I/71+ygvFmoCL._AC_UL480_FMwebp_QL65_.jpg" alt="Beetroot Lip Balm">
+            <div class="product-title">Nourish Mantra Beetroot Blast Lip Balm with SPF/Formulated with Beetroot Extracts, Olive Oil, Shea Butter, Vitamin E, and Avocado Oil/Best for both women and men/ 12gms</div>
+            <div class="product-desc">Have naturally healthy and hydrated lips.</div>
+            <a class="affiliate-link" href="https://amzn.to/4l988uO" target="_blank">Shop Now</a>
+        </div>
+        <!-- Product 5 -->
+        <div class="product-card" data-section="Grocery & Stationary" data-title="Aladdin Dates">
+            <img src="https://m.media-amazon.com/images/I/415FJRI5jDL._SY300_SX300_QL70_FMwebp_.jpg" width="200px" alt="Aladdin Dates">
+            <div class="product-title">Aladdin Dates Black Kimia Dates/Khajoor 500 Grams | IML Continer Packed |Mazafati Dates | Soft Khajur | Natural & Healthy Snack | IML Continer Packed</div>
+            <div class="product-desc">India’s First Clean Label Dates Brand</div>
+            <a class="affiliate-link" href="https://amzn.to/3IX6tLi" target="_blank">Shop Now</a>
+       </div>
+         <!-- Product 6 -->
+        <div class="product-card" data-section="women" data-title="Fit Trouser for women">
+            <img src="https://m.media-amazon.com/images/I/7179zb+0VzL._SY879_.jpg" width="250px" alt="Fit Trouser for women">
+            <div class="product-title">DIGITAL SHOPEE Women Regular Fit Elastic Waist Full Length Cotton Formal Trouser for Casual Wear, Office Wear</div>
+            <div class="product-desc">Comfortable and casual wear pant at a very reasonable price. At anytime and anywhere</div>
+            <a class="affiliate-link" href="https://amzn.to/46wNj8S" target="_blank">Shop Now</a>
+        </div>
+        <!-- Product 7 -->
+        <div class="product-card" data-section="Grocery & Stationary" data-title="UPSC question Bank">
+            <img src="https://m.media-amazon.com/images/I/81nBbBqoAGL._SY522_.jpg" width="200px" alt="UPSC question Bank">
+            <div class="product-title">26 Years UPSC IAS/ IPS Prelims Topic-wise Solved Papers 1 & 2 (1995 - 2020) 11th Edition</div>
+            <div class="product-desc">The thoroughly Revised and Updated 11th edition of Disha's BESTSELLER "26 Years UPSC IAS/ IPS Prelims Topic-wise Solved Papers 1 & 2 (1995-2020)" consists of past years solved papers of the General Studies Paper 1 & 2 distributed into 8 Units and 52 Topics.</div>
+            <a class="affiliate-link" href="https://amzn.to/3GT7pzT" target="_blank">Shop Now</a>
+        </div>
+         <!-- Product 8 -->
+        <div class="product-card" data-section="Beauty & Baby Products" data-title="Kimira Bath and Body Care">
+            <img src="https://m.media-amazon.com/images/I/51MWkSY171L._SX522_.jpg" width="200px" alt="Kimira Bath and Body Care">
+            <div class="product-title">Kimirica Love Story Luxury Bath and Body Care Gift Set Box | Bath Salt, Body Wash, Body Lotion, Bathing Bar and Hand cream | Pack of 5 | For Men and Women | Pampering Kit for Birthday ,Anniversary & All Special Occasions | Premium Gift Packaging 100% Vegan</div>
+            <div class="product-desc">Luxurious Product from the best sellers.</div>
+            <a class="affiliate-link" href="https://amzn.to/41pSEv7" target="_blank">Shop Now</a>
+        </div>
+      </div>
     </div>
     <footer>
         © 2025 Your Affiliate Website. As an Amazon Associate, we earn from qualifying purchases.
@@ -338,53 +295,8 @@
             document.getElementById('searchInput').value = '';
         }
     </script>
-<!-- Code injected by live-server -->
-<script>
-	// <![CDATA[  <-- For SVG support
-	if ('WebSocket' in window) {
-		(function () {
-			function refreshCSS() {
-				var sheets = [].slice.call(document.getElementsByTagName("link"));
-				var head = document.getElementsByTagName("head")[0];
-				for (var i = 0; i < sheets.length; ++i) {
-					var elem = sheets[i];
-					var parent = elem.parentElement || head;
-					parent.removeChild(elem);
-					var rel = elem.rel;
-					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
-						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
-						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
-					}
-					parent.appendChild(elem);
-				}
-			}
-			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
-			var address = protocol + window.location.host + window.location.pathname + '/ws';
-			var socket = new WebSocket(address);
-			socket.onmessage = function (msg) {
-				if (msg.data == 'reload') window.location.reload();
-				else if (msg.data == 'refreshcss') refreshCSS();
-			};
-			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
-				console.log('Live reload enabled.');
-				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
-			}
-		})();
-	}
-	else {
-		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
-	}
-	// ]]>
-</script>
 </body>
 </html>
-   
-  
-
-
-
-
-
 
 
 
